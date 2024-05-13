@@ -420,8 +420,27 @@ def plant(action):
             print("""You don't have a sleep spell.""")
     else:
         print("Please try another command!")
-    
-    
+
+def atticDoorHere():
+    if atticOpen == False:
+        return "There is a closed attic door set into the ceiling, from which a cord hangs."
+    if atticOpen == True:
+        return "Above you is an open attic door with a ladder hanging down from it."
+
+def atticDoor():
+    if atticOpen == False:
+        print("""You reach up and pull the cord connected to the attic door. The door swings open and a small ladder unfolds, leading up into darkness.""")
+        return 'attic open'
+    if atticOpen == True:
+        print("""The attic door is already open, with the ladder hanging below it.""")
+
+def hallDoor():
+    if 'a silver key' in playerInv:
+        print("""You use the silver key to unlock the door.""")
+        return 'hall door unlocked'
+    else:
+        print("""You try to open the door to no avail.""")
+        
 #### END ITEM ZONE ####
 
 import webbrowser
@@ -625,6 +644,7 @@ mimicSleep = False
 plantAlive = True
 plantSeen = False
 plantShrunk = False
+hallUnlocked = False
 
 while (alive == True) and (finishedGame == False):
 
@@ -949,15 +969,18 @@ brown leather suitcase on it. There is a door to the north.""")
 
     while playerLocation == 11 and roomRefresh == True:
         print("""This is a small walk-in linen closet, less than two
-arms-lengths across. A variety of towels, linens, and rags clutter the shelves.
-There is a closed attic door set into the ceiling, from which a cord hangs.
-The exit back out into the hall is east.""")
+arms-lengths across. A variety of towels, linens, and rags clutter the shelves.""",atticDoorHere(),
+"""The exit back out into the hall is east.""")
         roomRefresh = False
     while playerLocation == 11 and roomRefresh == False:
         action = input("> ")
         action = action.lower()
         if action == "look":
             roomRefresh = True
+        elif (("open" in action) or ("pull" in action)) and (("door" in action) or ("cord" in action)):
+            atticDoorOutcome = atticDoor()
+            if atticDoorOutcome == 'attic open':
+                atticOpen = True
         elif (action == "n") or ("north" in action):
             dirFail()
         elif (action == "s") or ("south" in action):
@@ -967,7 +990,7 @@ The exit back out into the hall is east.""")
         elif (action == "e") or ("east" in action):
             playerLocation = 8
             roomRefresh = True
-        elif (action == "up") or ("climb" and "ladder" in action):
+        elif ((action == "up") or ("climb" and "ladder" in action)) and (atticOpen == True):
             playerLocation = 16
             roomRefresh = True
         else:
@@ -978,8 +1001,8 @@ The exit back out into the hall is east.""")
     while playerLocation == 12 and roomRefresh == True:
         print("""You stand in the loft, which adjoins the various spaces of the
 second floor. Looking out over the railing on the southern side of the lift
-gives you a view of the chandelier and the foyer below. Exits are north, east,
-and west.""")
+gives you a view of the chandelier and the foyer below. There are doors to the
+west and north, and an open archway to the east.""")
         roomRefresh = False
     while playerLocation == 12 and roomRefresh == False:
         action = input("> ")
@@ -987,8 +1010,15 @@ and west.""")
         if action == "look":
             roomRefresh = True
         elif (action == "n") or ("north" in action):
-            playerLocation = 15
-            roomRefresh = True
+            if hallUnlocked == False:
+                print("""You try the northern exit but the door is locked.""")
+            if hallUnlocked == True:
+                playerLocation = 15
+                roomRefresh = True
+        elif (("open" in action) or ("unlock" in action) or ("force" in action)) and ("door" in action):
+            hallDoorOutcome = hallDoor()
+            if hallDoorOutcome == 'hall door unlocked':
+                hallUnlocked = True
         elif (action == "s") or ("south" in action):
             dirFail()
         elif (action == "w") or ("west" in action):
@@ -998,6 +1028,7 @@ and west.""")
             playerLocation = 7
             roomRefresh = True
         elif (("swing" or "use") in action) and ("chandelier" in action):
+            print("""Hell yeah. You jump over the loft's railing and grab hold of the chandelier. You swing from it for a moment before letting go and nimbly landing in the hall below.\n""")
             playerLocation = 4
             roomRefresh = True
         else:
@@ -1179,9 +1210,3 @@ is the attic door leading back down to the second floor.""")
 while (alive == False) and (finishedGame == False):
     print("""================================\nYou had a good run, but you ultimately perished in Milo's manor. You managed to collect""",calcScore(),"""extra treasures before doing so.""")
     action = input("> ")
-
-        
-    
-
-            
-
