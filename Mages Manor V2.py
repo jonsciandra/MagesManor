@@ -2,7 +2,7 @@
 #### THE ITEM ZONE ####
 
 # function for checking if painting in room and description thereof (includes shrunken variant)
-
+      
 def paintingHere():
     if 'a fancy painting' in room2Contents:
         return "You see a fancy painting hanging at one end of the dining table."
@@ -16,6 +16,9 @@ def paintingDesc():
         print("It is a large painting of Milo the Mage in a solid gold frame. Talk about a selfie!")
     elif 'a shrunken fancy painting' in room2Contents:
         print("This painting of Milo has been shrunken down to the size of a postage stamp.")
+    elif 'a shrunken fancy painting' in playerInv:
+        print("""The painting you hold is a gold-framed portait of Milo The Mage.
+You are essentially in possession of the world's fanciest wallet photo.""")
     else:
         print("""There is no painting in this room. Knowing you, you probably
 stole it already.""")
@@ -440,6 +443,22 @@ def hallDoor():
         return 'hall door unlocked'
     else:
         print("""You try to open the door to no avail.""")
+
+def pianoHere():
+    if 'a piano' in room3Contents:
+        return "In the corner sits a large, ornate grand piano with gleaming ivory keys."
+    elif 'a shrunken piano' in room3Contents:
+        return "The miniature piano seems cartoonishly small compared to the rest of the furniture in the room."
+    else:
+        return ""
+
+def pianoDesc():
+    if ('a shrunken piano' in playerInv) or (('a shrunken piano' in room3Contents) and (playerLocation == 3)):
+        print("""Even in miniature, the craftsmanship of this instruments shows through. You could probably unshrink it at a later date for sale or use.""")
+    elif ('a piano' in room3Contents) and (playerLocation == 3):
+        print("""The piano is expertly crafted and you suspect it would fetch a great sum if you could move the darn thing.""")
+    else:
+        print("""There is no piano here.""")
         
 #### END ITEM ZONE ####
 
@@ -463,16 +482,45 @@ scroll you're looking at. Try 'look <name> spell' or 'look <name> scroll'' inste
         swordDesc()
     elif (("look" in action) or ("examine" in action)) and ("decanter" in action):
         decanterDesc()
+    elif (("look" or "examine") in action) and ("painting" in action):
+        paintingDesc()
     elif (("look" in action) or ("examine" in action) or ("read" in action)) and ("note" in action):
         noteDesc()
     elif (("examine" in action) or ("look" in action)) and ("key" in action):
         keyDesc()
     elif (("examine" in action) or ("look" in action) or ("read" in action)) and (("book" in action) or ("tome" in action)):
         bookDesc()
+    elif (("examine" in action) or ("look" in action)) and ("piano" in action):
+        pianoDesc()
+    elif (("examine" in action) or ("look" in action)) and (("crystal" in action) or ("gem" in action)):
+        crystalDesc()
     elif (action == "swing sword") or (action == "use sword"):
         swingSword()
+    elif ("piano" in action) and ("play" in action):
+        if ('a piano' in room3Contents) and (playerLocation == 3):
+            print("You plink out a few notes on the piano.")
+        elif ('a shrunken piano' in playerInv) or (('a shrunken piano' in room3Contents) and (playerLocation == 3)):
+            print("""With some effort, you plink out a few notes on the tiny piano. At this size, the sound has a music-box quality to it.""")
+        else:
+            print("There is no piano here to play.")
+    elif "shrink" in action:
+        if "piano" in action:
+            shrink('a piano')
+        elif ("painting" in action) or ("portrait" in action):
+            shrink('a fancy painting')
+        else:
+            print("""You get the feeling that this isn't the right place or time to use the shrinking spell.""")
+    elif "archwiz" in action:
+        if "wish" in action:
+            print("Ask and ye shall receive!")
+            playerInv.append('a burn spell')
+            playerInv.append('a shrink spell')
+            playerInv.append('a sleep spell')
+            playerInv.append('a silver key')
+            playerInv.append('an ancient sword')
     else:
         print("Please try another command!")
+    
 
 def dirFail():
     print("You can't go that way here!")
@@ -484,11 +532,15 @@ def inventoryCheck():
         if playerInv == []:
             print("You have NOTHING!")
         else:
-            print("You currently have " + ", ".join(playerInv) + ".")
-            if calcScore() == 1:
-                print("You have found", calcScore(), "extra treasure.")
+            print("INVENTORY: " + ", ".join(playerInv))
+            if usedSpells == []:
+                return
             else:
-                print("You have found", calcScore(), "extra treausres.")
+                print("\nUSED SPELLS: " + ", ".join(usedSpells))
+            if calcScore() == 1:
+                print("\nYou have found", calcScore(), "extra treasure.")
+            else:
+                print("\nYou have found", calcScore(), "extra treausres.")
     else:
         return
 
@@ -520,8 +572,29 @@ def getItem(container,item):
             print("You pocket the tiny, tiny painting. This is one of the rumored treasures! Well played!")
         elif item == '''Milo's Crystal''':
             print("""You carefully reach out and take Milo's crystal off of its pedestal. You found what you've came for! Now you just have to make it back out of the mansion.""")
+        elif item == 'a shrunken piano':
+            print("""While not what you came for, this miniature piano could be unshrunk at a later date, either for sale or use. You put it in your pocket.""")
         else:
             print("You pick up " + item + ".")
+
+def shrink(item):
+    if 'a shrink spell' in playerInv:
+        if item == 'a piano' and playerLocation == 3: 
+            print("""You read aloud from the spell scroll. The piano is consumed in a cloud of purple smoke. When it clears, you see it has shrunken down to the size of a deck of cards.""")
+            room3Contents.remove('a piano')
+            room3Contents.append('a shrunken piano')
+            playerInv.remove('a shrink spell')
+            usedSpells.append('a shrink spell')
+        elif item == 'a fancy painting' and playerLocation == 2:
+            print("""You read aloud from the spell scroll and watch as the painting shrinks down to the size of a postage stamp.""")
+            room2Contents.remove('a fancy painting')
+            room2Contents.append('a shrunken fancy painting')
+            playerInv.remove('a shrink spell')
+            usedSpells.append('a shrink spell')
+        else:
+            print("""You get the feeling that this isn't the right place or time to use the shrinking spell.""")
+    else:
+        print("You do not have a shrink spell.")
 
 def swingSword():
     if 'an ancient sword' in playerInv:
@@ -547,6 +620,7 @@ def calcScore():
 
 room1Contents = []
 room2Contents = ['a fancy painting'] #painting Here and description functions done
+room3Contents = ['a piano']
 room4Contents = ['an ancient sword'] #sword functions done
 room5Contents = ['Spell Scrolls For Dummies']
 room5DeskContents = ['a sleep spell'] 
@@ -670,6 +744,12 @@ and south.""")
             dirFail()
         elif (action == "e") or ("east" in action):
             dirFail()
+        elif ("cellar" in action):
+            if ('''Milo's Crystal''' in playerInv):
+                finishedGame = True
+                break
+            else:
+                print("You can't leave the mansion until you find Milo's Crystal, remember?")
         else:
             otherCmds()
 
@@ -685,8 +765,6 @@ adventures. The table is laid out with shining sets of flatware.""",paintingHere
         action = action.lower()
         if action == "look":
             roomRefresh = True
-        elif (("look" or "examine") in action) and ("painting" in action):
-            paintingDesc()
         elif (("take" or "get") in action) and ("painting" in action):
             if 'a fancy painting' in room2Contents:
                 print("It's a nice painting, but it's too large to carry with you.")
@@ -711,8 +789,8 @@ stole it already.""")
 # ROOM 3 - PARLOR
     while playerLocation == 3 and roomRefresh == True:
         print("""You are in a parlor with plush red carpet and ornate wall-paper.
-A soft-looking couch sits in front of a bank of windows looking out on the lawn.
-The corner of the room is taken up by a massive grand piano. Exits are to the
+A soft-looking couch sits in front of a bank of windows looking out on the lawn.""",
+pianoHere(),"""Exits are to the
 north and east.""")
         roomRefresh = False
     while playerLocation == 3 and roomRefresh == False:
@@ -720,14 +798,15 @@ north and east.""")
         action = action.lower()
         if action == "look":
             roomRefresh = True
-        elif ("piano" in action) and (("look" in action) or ("examine") in action):
-            print("You stole a piano once. Every copper you earned on that job went to the movers. Never again.")
         elif (("take" or "get") in action) and ("piano"):
-            print("You're a thief, not a mover. Think again.")
-        elif ("piano" in action) and ("play" in action):
-            print("You plink out a few notes on the piano.")
+            if 'a piano' in room3Contents:
+                print("You're a thief, not a mover. Think again.")
+            elif 'a shrunken piano' in room3Contents:
+                getItem(room3Contents,'a shrunken piano')
+            else:
+                print("There is no piano here.")
         elif (action == "n") or ("north" in action):
-            playerLocation = 2
+            playerLocation = 1
             roomRefresh = True
         elif (action == "e") or ("east" in action):
             playerLocation = 4
@@ -823,7 +902,6 @@ there ever was one.""")
             roomRefresh = True
         elif (action == "n") or ("north" in action):
             dirFail()
-            roomRefresh = True
         elif (action == "e") or ("east" in action):
             dirFail()
         elif (action == "s") or ("south" in action):
@@ -879,7 +957,7 @@ of it.""",carpetDesc(),"""There are doors to the north, east, south, and west.""
         action = action.lower()
         if action == "look":
             roomRefresh = True
-        elif (("flip" in action) or ("search" in action)) and (("carpet" in action) or ("rug" in action)):
+        elif (("flip" in action) or ("search" in action) or ("move" in action)) and (("carpet" in action) or ("rug" in action)):
             if carpetFlipped == False:
                 flipCarpet()
                 carpetFlipped = True
@@ -1209,4 +1287,24 @@ is the attic door leading back down to the second floor.""")
 
 while (alive == False) and (finishedGame == False):
     print("""================================\nYou had a good run, but you ultimately perished in Milo's manor. You managed to collect""",calcScore(),"""extra treasures before doing so.""")
+    action = input("> ")
+
+while (alive == True) and (finishedGame == True):
+    print("""Congratulations! Using nothing but your cunning and an assortment
+of random objects, you successfully robbed the home of MILO THE MAGE. """)
+    if calcScore() == 0:
+        print("")
+    elif calcScore() == 1:
+        print("""You were able to find""",calcScore(),"""extra treasure while you were at it.\n""")
+    elif calcScore() == 4:
+        print("""You were able to find all""",calcScore(),"""extra treasures while you were
+at it. With the money from this job, you should finally be able to retire and live a
+life of luxury somewhere in the Dragon Sea. You can almost taste the daiquiris now!\n""") 
+    else:
+        print("""You were able to find""",calcScore(),"""extra treasures while you were at it.\n""")
+    print("""You emerge from a sewer grate in a nearby alleyway and slip off into the night.
+There will be other houses to heist, places to pilfer, residences to ransack,
+but tonight... THE FORGETFUL THIEF celebrates!
+
+... Now you just have to remember where your HIDEOUT is.""")
     action = input("> ")
