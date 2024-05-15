@@ -43,24 +43,27 @@ and its razor-thin blade glows with a faint white light, like moonlight.""")
     else:
         print("There's no sword here.")
 
-# Function for checking if sleep spell is in room and description of sword
+# Function for checking if SLEEP spell is in room and description of sword
 
 def sleepSpellHere():
-    if 'a sleep spell' in room5DeskContents:
-        print("""The desk is cluttered, but in the mess of papers and open ink pots you see a scroll containing the sleep spell.""")
+    if 'a SLEEP spell' in room5DeskContents:
+        print("""The desk is cluttered, but in the mess of papers and open ink pots you see a scroll containing the SLEEP spell.""")
     else:
         print("""You search the desk, but find nothing besides several notes from the
 Larcenia Society of Arcanists saying Milo needs to pay his annual dues.""")
 
 def sleepSpellDesc():
-    if playerLocation == 5 and 'a sleep spell' in room5DeskContents:
-        print("""It is a small scroll with magical runes carved on it that pulse with a faint golden
-light. You suspect you could use the scroll to cast a sleep spell.""")
-    elif 'a sleep spell' in playerInv:
-        print("""You hold a small scroll with magical runes carved on it that pulse with a faint golden
-light. You suspect you could use the scroll to cast a sleep spell.""")
+    if playerLocation == 5 and 'a SLEEP spell' in room5DeskContents:
+        print("""It is a small scroll with magical runes carved on it that pulse with a faint
+golden light. You suspect you could use the scroll to cast a SLEEP spell.""")
+    elif 'a SLEEP spell' in playerInv:
+        print("""You hold a small scroll with magical runes carved on it that pulse with a
+faint golden light. You suspect you could use the scroll to cast a SLEEP spell.""")
+    elif 'a SLEEP spell' in usedSpells:
+        print("""You hold a small scroll with magical runes for a SLEEP spell written on it.
+The runes no longer glow now that you've used the scroll.""")
     else:
-        print("There is no sleep spell here.")
+        print("There is no SLEEP spell here.")
 
 # Function for book Here and description
 def bookHere():
@@ -74,16 +77,34 @@ next to the chair."""
 
 def bookDesc():
     if 'Spell Scrolls For Dummies' in room5Contents:
-        print("""This book is considered essential for mages of any level. Spell scrolls are, after all,
+        print('''This book is considered essential for mages of any level. Spell scrolls are, after all,
 the easiest way to make magic accessible to the common layperson, as they allow that person to use a spell
 one time by reading from the scroll. Spell scrolls are the bridge between arcanists and the world at large
-(not to mention an excellent side hustle if you're a caster trying to make rent).""")
+(not to mention an excellent side hustle if you're a caster trying to make rent).
+
+One excerpt catches your eye:
+
+"If, theoretically, one were trying to express use of a spell scroll as a command (say, in an ADVENTURE GAME),
+it could be written as: <SPELL KEYWORD> <TARGET>"
+
+You have no idea what that means.
+
+''')
     elif 'Spell Scrolls For Dummies' in playerInv:
-        print("""You hold Milo's copy of this book, which is considered essential for mages of any level.
+        print('''You hold Milo's copy of this book, which is considered essential for mages of any level.
 Spell scrolls are, after all, the easiest way to make magic accessible to the common layperson, as they
 allow that person to use a spell one time by reading from the scroll. Spell scrolls are the bridge between
 arcanists and the world at large (not to mention an excellent side hustle if you're a caster trying
-to make rent).""")
+to make rent).
+
+One excerpt catches your eye:
+
+"If, theoretically, one were trying to express use of a spell scroll as a command (say, in an ADVENTURE GAME),
+it could be written as: <SPELL KEYWORD> <TARGET>"
+
+You have no idea what that means.
+
+''')
     else:
         print("There is no book here.")
 
@@ -121,10 +142,10 @@ different hue. There is no drink in it, but the decanter alone would fetch a hig
     else:
         print("There is no decanter here.")
 
-# SHRINK SPELL FUNCTIONS
+# SHRINK spell FUNCTIONS
 
 def shrinkSpellHere():
-    if playerLocation == 10 and 'a shrink spell' in room10LuggageContents:
+    if playerLocation == 10 and 'a SHRINK spell' in room10LuggageContents:
         print("""The suitcase is full of robes, hats, and socks, all shrunken down to travel size,
 no doubt to be un-shrunk later. Tucked into a pocket in the suitcase's lid is a scroll containing the runes for
 a shrinking spell.""")
@@ -133,29 +154,35 @@ a shrinking spell.""")
 no doubt to be un-shrunk later.""")
 
 def shrinkSpellDesc():
-    if playerLocation == 10 and 'a shrink spell' in room10LuggageContents:
+    if playerLocation == 10 and 'a SHRINK spell' in room10LuggageContents:
         print("""The scroll is made of fine white parchment. The runes for a shrinking spell are
 inscribed upon the paper in glowing purple ink.""")
-    elif 'a shrink spell' in playerInv:
+    elif 'a SHRINK spell' in playerInv:
         print("""This scroll is made of fine white parchment. The runes for a shrinking spell are
 inscribed upon the paper in glowing purple ink.""")
+    elif 'a SHRINK spell' in usedSpells:
+        print("""You hold a small scroll with magical runes for a SHRINK spell written on it.
+The runes no longer glow now that you've used the scroll.""")
     else:
         print("There is no spell scroll here.")
 
 def burnSpellHere():
-    if 'a burn spell' in room16Contents:
+    if 'a BURN spell' in room16Contents:
         print("""After rummaging around in the clutter of the attic for a little, you find a
-scroll containing the burn spell.""")
+scroll containing the BURN spell.""")
     else:
         print("There is nothing worth stealing among the junk in the attic, not even some spare change.")
 
 def burnSpellDesc():
-    if 'a burn spell' in room16Contents:
-        print("""The scroll is yellowed and tattered, but the ember-red runes written on the parchment still
-glow with power.""")
-    elif 'a burn spell' in playerInv:
-        print("""The scroll you hold is yellowed and tattered, but the ember-red runes written on the parchment still
-glow with power.""")
+    if 'a BURN spell' in room16Contents and playerLocation == 16:
+        print("""The scroll is yellowed and tattered, but the ember-red runes written on
+the parchment still glow with power.""")
+    elif 'a BURN spell' in playerInv:
+        print("""The scroll you hold is yellowed and tattered, but the ember-red runes
+written on the parchment still glow with power.""")
+    elif 'a BURN spell' in usedSpells:
+        print("""You hold a small scroll with magical runes for a BURN spell written on it.
+The runes no longer glow now that you've used the scroll.""")
     else:
         print("""There is no spell scroll here.""")
 
@@ -238,7 +265,7 @@ def mimicDesc():
         print("""The mimic is no longer here. It skittered under the bed after you shrank it to the size of a
 mouse, remember?""")
     elif mimicSeen == True and mimicAlive == True and mimicSleep == True:
-        print("""The mimic is out cold, thanks to that sleep spell. You can probably safely reach inside its
+        print("""The mimic is out cold, thanks to that SLEEP spell. You can probably safely reach inside its
 toothy maw now, if you're feeling lucky.""")
     elif mimicSeen == True and mimicAlive == False:
         if 'a silver key' in room13Contents:
@@ -292,26 +319,26 @@ def mimic(action):
         else:
             print("""You do not have a sword.""")
     elif "shrink" in action:
-        if 'a shrink spell' in playerInv:
+        if 'a SHRINK spell' in playerInv:
             print("""You read the shrinking spell written on the scroll. The mimic explodes in a puff of purple smoke. Once the smoke clears, you can see the mimic is now the size of a small mouse. For a moment it sits there on the carpet, trembling, before hacking up a silver key and skittering under Milo's bed.""")
             mimicOutcome = 'mimic shrunk'
             return mimicOutcome
         else:
-            print("""You don't have a shrink spell.""")
+            print("""You don't have a SHRINK spell.""")
     elif "burn" in action:
-        if 'a burn spell' in playerInv:
-            print("""You read the burn spell written on the scroll. A tendril of flame springs from the page and arcs toward the mimic, wreathing it in flame! When the flame dissipates, the mimic is a smoldering heap on the ground. The light glints off a silver key lying among the remains.""")
+        if 'a BURN spell' in playerInv:
+            print("""You read the BURN spell written on the scroll. A tendril of flame springs from the page and arcs toward the mimic, wreathing it in flame! When the flame dissipates, the mimic is a smoldering heap on the ground. The light glints off a silver key lying among the remains.""")
             mimicOutcome = 'mimic burned'
             return mimicOutcome
         else:
-            print("""You don't have a burn spell.""")
+            print("""You don't have a BURN spell.""")
     elif "sleep" in action:
-        if 'a sleep spell' in playerInv:
-            print("""You read the sleep spell written on the scroll. Motes of gold light rise off the page and fall upon the mimic. Within moments, it is fast asleep, snoring loudly. Its mouth opens with each snore, and you can see a glint of silver inside.""")
+        if 'a SLEEP spell' in playerInv:
+            print("""You read the SLEEP spell written on the scroll. Motes of gold light rise off the page and fall upon the mimic. Within moments, it is fast asleep, snoring loudly. Its mouth opens with each snore, and you can see a glint of silver inside.""")
             mimicOutcome = 'mimic asleep'
             return mimicOutcome
         else:
-            print("""You don't have a sleep spell.""")
+            print("""You don't have a SLEEP spell.""")
     else:
         print("Please try another command!")
 
@@ -401,26 +428,26 @@ def plant(action):
         else:
             print("""You do not have a sword.""")
     elif "shrink" in action:
-        if 'a shrink spell' in playerInv:
-            print("""You read aloud from the scroll containing the shrink spell. Tendrils of purple smoke pour from the scroll and envelop the plant. When the smoke clears, the vines have shrunk and are only an inch tall, now looking more like highly discontented grass.""")
+        if 'a SHRINK spell' in playerInv:
+            print("""You read aloud from the scroll containing the SHRINK spell. Tendrils of purple smoke pour from the scroll and envelop the plant. When the smoke clears, the vines have shrunk and are only an inch tall, now looking more like highly discontented grass.""")
             plantOutcome = 'plant shrunk'
             return plantOutcome
         else:
-            print("""You don't have a shrink spell.""")
+            print("""You don't have a SHRINK spell.""")
     elif "burn" in action:
-        if 'a burn spell' in playerInv:
-            print("""You read from the scroll containing the burn spell. An arc of bright red flame shoots forth from the scroll and sears the plant. The plant's dessicated remains litter the floor.""")
+        if 'a BURN spell' in playerInv:
+            print("""You read from the scroll containing the BURN spell. An arc of bright red flame shoots forth from the scroll and sears the plant. The plant's dessicated remains litter the floor.""")
             plantOutcome = 'plant burned'
             return plantOutcome
         else:
-            print("""You don't have a burn spell.""")
+            print("""You don't have a BURN spell.""")
     elif "sleep" in action:
-        if 'a sleep spell' in playerInv:
-            print("""You read from the scroll containing the sleep spell. Motes of gold light shower down upon the plant, but its vines continue to writhe menacingly. It occurs to you that plants don't actually need sleep.""")
+        if 'a SLEEP spell' in playerInv:
+            print("""You read from the scroll containing the SLEEP spell. Motes of gold light shower down upon the plant, but its vines continue to writhe menacingly. It occurs to you that plants don't actually need sleep.""")
             plantOutcome = 'plant still awake'
             return plantOutcome
         else:
-            print("""You don't have a sleep spell.""")
+            print("""You don't have a SLEEP spell.""")
     else:
         print("Please try another command!")
 
@@ -513,9 +540,9 @@ scroll you're looking at. Try 'look <name> spell' or 'look <name> scroll'' inste
     elif "archwiz" in action:
         if "wish" in action:
             print("Ask and ye shall receive!")
-            playerInv.append('a burn spell')
-            playerInv.append('a shrink spell')
-            playerInv.append('a sleep spell')
+            playerInv.append('a BURN spell')
+            playerInv.append('a SHRINK spell')
+            playerInv.append('a SLEEP spell')
             playerInv.append('a silver key')
             playerInv.append('an ancient sword')
     else:
@@ -528,21 +555,10 @@ def dirFail():
 # FUNCTION for checking player's inventory. Prints message in response.
 
 def inventoryCheck():
-    if action == ("inv" or "inventory"):
-        if playerInv == []:
-            print("You have NOTHING!")
-        else:
-            print("INVENTORY: " + ", ".join(playerInv))
-            if usedSpells == []:
-                return
-            else:
-                print("\nUSED SPELLS: " + ", ".join(usedSpells))
-            if calcScore() == 1:
-                print("\nYou have found", calcScore(), "extra treasure.")
-            else:
-                print("\nYou have found", calcScore(), "extra treausres.")
-    else:
-        return
+    print("INVENTORY: " + ", ".join(playerInv) + "\n")
+    if len(usedSpells)>0:
+        print("USED SPELLS: " + ", ".join(usedSpells) + "\n")
+    print("EXTRA TREASURES:",calcScore())
 
 # Function for opening chest to look inside
 
@@ -578,23 +594,23 @@ def getItem(container,item):
             print("You pick up " + item + ".")
 
 def shrink(item):
-    if 'a shrink spell' in playerInv:
+    if 'a SHRINK spell' in playerInv:
         if item == 'a piano' and playerLocation == 3: 
             print("""You read aloud from the spell scroll. The piano is consumed in a cloud of purple smoke. When it clears, you see it has shrunken down to the size of a deck of cards.""")
             room3Contents.remove('a piano')
             room3Contents.append('a shrunken piano')
-            playerInv.remove('a shrink spell')
-            usedSpells.append('a shrink spell')
+            playerInv.remove('a SHRINK spell')
+            usedSpells.append('a SHRINK spell')
         elif item == 'a fancy painting' and playerLocation == 2:
             print("""You read aloud from the spell scroll and watch as the painting shrinks down to the size of a postage stamp.""")
             room2Contents.remove('a fancy painting')
             room2Contents.append('a shrunken fancy painting')
-            playerInv.remove('a shrink spell')
-            usedSpells.append('a shrink spell')
+            playerInv.remove('a SHRINK spell')
+            usedSpells.append('a SHRINK spell')
         else:
             print("""You get the feeling that this isn't the right place or time to use the shrinking spell.""")
     else:
-        print("You do not have a shrink spell.")
+        print("You do not have a SHRINK spell.")
 
 def swingSword():
     if 'an ancient sword' in playerInv:
@@ -623,14 +639,14 @@ room2Contents = ['a fancy painting'] #painting Here and description functions do
 room3Contents = ['a piano']
 room4Contents = ['an ancient sword'] #sword functions done
 room5Contents = ['Spell Scrolls For Dummies']
-room5DeskContents = ['a sleep spell'] 
+room5DeskContents = ['a SLEEP spell'] 
 room8Contents = ['a note']
 room9Contents = ['a gold hand mirror']
-room10LuggageContents = ['a shrink spell']
+room10LuggageContents = ['a SHRINK spell']
 room13Contents = ['a silver key']
 room14Contents = ['a crystal decanter']
 room15Contents = ['''Milo's Crystal''']
-room16Contents = ['a burn spell']
+room16Contents = ['a BURN spell']
 usedSpells = []
 
 def introText():
@@ -650,12 +666,18 @@ Would you like some instructions on how to play this game? (Y/N)
 
 *****
 """)
+
+def introQuestion1():
     action = input("> ")
     action = action.lower()
-    if action == "y":
+    if action == ("y" or "yes"):
         tutorial()
+        return True
+    elif action == ("n" or "no"):
+        return True
     else:
-        return
+        print("Please try another response!")
+        return False
 
 def tutorial():
     print("""This is a text-based adventure game. You interact with the world
@@ -685,17 +707,26 @@ There are other commands besides these, so don't hesitate to experiment!
 """)
 
 def areYouReady():
-    print("Are you ready to begin? (Y/N)")
     action = input("> ")
     action = action.lower()
-    if action == "y":
-        return "y"
-    if action == "n":
-        print("Oh. Uhhh... I didn't really expect you so that. Have a nice day, I guess?")
-        input("> ")
+    if action == ("y" or "yes"):
+        return True
+    elif action == ("n" or "no"):
+        print("Are you sure? Think of all the riches!")
+        return False
+    else:
+        print("Please try another response!")
+        return False
+
+q1Answered = False
+q2Answered = False
 
 introText()
-areYouReady()
+while q1Answered == False:
+    q1Answered = introQuestion1()
+print("Are you ready to begin? (Y/N)")
+while q2Answered == False:
+    q2Answered = areYouReady()
 
 #Flags relevant to player status
 alive = True
@@ -872,10 +903,11 @@ green armchair sits in front of the fireplace.""",bookHere(),"""The only exit is
             roomRefresh = True
         elif (("search" in action) or ("look" in action)) and ("desk" in action):
             sleepSpellHere()
-        elif (("get" in action) or ("take" in action)) and (("spell" in action) or ("scroll" in action)):
-            getItem(room5DeskContents,'a sleep spell')
-        elif (("get" in action) or ("take" in action)) and (("book" in action) or ("tome" in action)):
-            getItem(room5Contents,'Spell Scrolls For Dummies')
+        elif ("get" in action) or ("take" in action):
+            if (("book" in action) or ("tome" in action)) or ("dummies" in action) or ("spell scrolls" in action):
+                getItem(room5Contents,'Spell Scrolls For Dummies')
+            elif ("spell" in action) or ("scroll" in action):
+                getItem(room5DeskContents,'a SLEEP spell')
         elif (action == "n") or ("north" in action):
             playerLocation = 6
             roomRefresh = True
@@ -1029,7 +1061,7 @@ brown leather suitcase on it. There is a door to the north.""")
         elif (("search" in action) or ("look" in action)) and (("suitcase" in action) or ("luggage" in action)):
             shrinkSpellHere()
         elif (("get" in action) or ("take" in action)) and (("spell" in action) or ("scroll" in action)):
-            getItem(room10LuggageContents,'a shrink spell')
+            getItem(room10LuggageContents,'a SHRINK spell')
         elif (action == "n") or ("north" in action):
             playerLocation = 8
             roomRefresh = True
@@ -1140,18 +1172,18 @@ takes up the center of the space,""", mimicHere(),keyHere(),
             elif mimicOutcome == 'mimic shrunk':
                 mimicShrunk = True
                 mimicSeen = True
-                playerInv.remove('a shrink spell')
-                usedSpells.append('a shrink spell')
+                playerInv.remove('a SHRINK spell')
+                usedSpells.append('a SHRINK spell')
             elif mimicOutcome == 'mimic burned':
                 mimicAlive = False
                 mimicSeen = True
-                playerInv.remove('a burn spell')
-                usedSpells.append('a burn spell')
+                playerInv.remove('a BURN spell')
+                usedSpells.append('a BURN spell')
             elif mimicOutcome == 'mimic asleep':
                 mimicSleep = True
                 mimicSeen = True
-                playerInv.remove('a sleep spell')
-                usedSpells.append('a sleep spell')
+                playerInv.remove('a SLEEP spell')
+                usedSpells.append('a SLEEP spell')
             elif mimicOutcome == 'key taken':
                 room13Contents.remove('a silver key')
                 playerInv.append('a silver key')
@@ -1228,17 +1260,17 @@ mythical beasts line the walls.""",crystalHere(),plantHere(),"""The only exit is
             elif plantOutcome == 'plant shrunk':
                 plantShrunk = True
                 plantSeen = True
-                playerInv.remove('a shrink spell')
-                usedSpells.append('a shrink spell')
+                playerInv.remove('a SHRINK spell')
+                usedSpells.append('a SHRINK spell')
             elif plantOutcome == 'plant burned':
                 plantAlive = False
                 plantSeen = True
-                playerInv.remove('a burn spell')
-                usedSpells.append('a burn spell')
+                playerInv.remove('a BURN spell')
+                usedSpells.append('a BURN spell')
             elif plantOutcome == 'plant still awake':
                 plantSeen = True
-                playerInv.remove('a sleep spell')
-                usedSpells.append('a sleep spell')
+                playerInv.remove('a SLEEP spell')
+                usedSpells.append('a SLEEP spell')
             elif plantOutcome == 'crystal taken':
                 getItem(room15Contents,'''Milo's Crystal''')
         elif (action == "n") or ("north" in action):
@@ -1270,7 +1302,7 @@ is the attic door leading back down to the second floor.""")
         elif ("search" in action):
             burnSpellHere()
         elif (("get" in action) or ("take" in action)) and (("scroll" in action) or ("spell" in action)):
-            getItem(room16Contents,'a burn spell')
+            getItem(room16Contents,'a BURN spell')
         elif (action == "n") or ("north" in action):
             dirFail()
         elif (action == "s") or ("south" in action):
@@ -1308,3 +1340,6 @@ but tonight... THE FORGETFUL THIEF celebrates!
 
 ... Now you just have to remember where your HIDEOUT is.""")
     action = input("> ")
+
+            
+
