@@ -1,4 +1,3 @@
-
 #### THE ITEM ZONE ####
 
 # function for checking if painting in room and description thereof (includes shrunken variant)
@@ -54,22 +53,18 @@ Larcenia Society of Arcanists saying Milo needs to pay his annual dues.""")
 
 def sleepSpellDesc():
     if playerLocation == 5 and 'a SLEEP spell' in room5DeskContents:
-        print("""\nIt is a small scroll with magical runes carved on it that pulse with a faint
-golden light. You suspect you could use the scroll to cast a SLEEP spell.""")
+        print("""\nIt is a small scroll with magical runes carved on it that pulse with a faint golden light. You suspect you could use the scroll to cast a SLEEP spell.""")
     elif 'a SLEEP spell' in playerInv:
-        print("""\nYou hold a small scroll with magical runes carved on it that pulse with a
-faint golden light. You suspect you could use the scroll to cast a SLEEP spell.""")
+        print("""\nYou hold a small scroll with magical runes carved on it that pulse with a faint golden light. You suspect you could use the scroll to cast a SLEEP spell.""")
     elif 'a SLEEP spell' in usedSpells:
-        print("""\nYou hold a small scroll with magical runes for a SLEEP spell written on it.
-The runes no longer glow now that you've used the scroll.""")
+        print("""\nYou hold a small scroll with magical runes for a SLEEP spell written on it. The runes no longer glow now that you've used the scroll.""")
     else:
         print("\nThere is no SLEEP spell here.")
 
 # Function for book Here and description
 def bookHere():
     if 'Spell Scrolls For Dummies' in room5Contents:
-        return """A copy of the classic arcane tome "Spell Scrolls For Dummies" rests on an end table
-next to the chair."""
+        return """A copy of the classic arcane tome "Spell Scrolls For Dummies" rests on an end table next to the chair."""
     else:
         return ""
 
@@ -77,30 +72,21 @@ next to the chair."""
 
 def bookDesc():
     if 'Spell Scrolls For Dummies' in room5Contents:
-        print('''\nThis book is considered essential for mages of any level. Spell scrolls are, after all,
-the easiest way to make magic accessible to the common layperson, as they allow that person to use a spell
-one time by reading from the scroll. Spell scrolls are the bridge between arcanists and the world at large
-(not to mention an excellent side hustle if you're a caster trying to make rent).
+        print('''\nThis book is considered essential for mages of any level. Spell scrolls are, after all, the easiest way to make magic accessible to the common layperson, as they allow that person to use a spell one time by reading from the scroll. Spell scrolls are the bridge between arcanists and the world at large (not to mention an excellent side hustle if you're a caster trying to make rent).
 
 One excerpt catches your eye:
 
-"If, theoretically, one were trying to express use of a spell scroll as a command (say, in an ADVENTURE GAME),
-it could be written as: <SPELL KEYWORD> <TARGET>"
+"If, theoretically, one were trying to express use of a spell scroll as a command (say, in an ADVENTURE GAME), it could be written as: <SPELL KEYWORD> <TARGET>"
 
 You have no idea what that means.
 
 ''')
     elif 'Spell Scrolls For Dummies' in playerInv:
-        print('''\nYou hold Milo's copy of this book, which is considered essential for mages of any level.
-Spell scrolls are, after all, the easiest way to make magic accessible to the common layperson, as they
-allow that person to use a spell one time by reading from the scroll. Spell scrolls are the bridge between
-arcanists and the world at large (not to mention an excellent side hustle if you're a caster trying
-to make rent).
+        print('''\nYou hold Milo's copy of this book, which is considered essential for mages of any level. Spell scrolls are, after all, the easiest way to make magic accessible to the common layperson, as they allow that person to use a spell one time by reading from the scroll. Spell scrolls are the bridge between arcanists and the world at large (not to mention an excellent side hustle if you're a caster trying to make rent).
 
 One excerpt catches your eye:
 
-"If, theoretically, one were trying to express use of a spell scroll as a command (say, in an ADVENTURE GAME),
-it could be written as: <SPELL KEYWORD> <TARGET>"
+"If, theoretically, one were trying to express use of a spell scroll as a command (say, in an ADVENTURE GAME), it could be written as: <SPELL KEYWORD> <TARGET>"
 
 You have no idea what that means.
 
@@ -117,11 +103,9 @@ def mirrorHere():
 
 def mirrorDesc():
     if playerLocation == 9 and 'a gold hand mirror' in room9Contents:
-        print("""\nThe mirror has a gold handle and frame carved to resemble branches and flowers. It is
-surely made by the dryad smiths of Hightree, given the quality and plant motifs.""")
+        print("""\nThe mirror has a gold handle and frame carved to resemble branches and flowers. It is surely made by the dryad smiths of Hightree, given the quality and plant motifs.""")
     elif 'a gold hand mirror' in playerInv:
-        print("""\nThe mirror has a gold handle and frame carved to resemble branches and flowers. It is
-surely made by the dryad smiths of Hightree, given the quality and plant motifs.""")
+        print("""\nThe mirror has a gold handle and frame carved to resemble branches and flowers. It is surely made by the dryad smiths of Hightree, given the quality and plant motifs.""")
     else:
         print("\nThere is no mirror here.")
 
@@ -134,11 +118,9 @@ def decanterHere():
 
 def decanterDesc():
     if playerLocation == 14 and 'a crystal decanter' in room14Contents:
-        print("""\nThe decanter on the table refracts the light like a prism, each facet shining with a
-different hue. There is no drink in it, but the decanter alone would fetch a high price.""")
+        print("""\nThe decanter on the table refracts the light like a prism, each facet shining with a different hue. There is no drink in it, but the decanter alone would fetch a high price.""")
     elif 'a gold hand mirror' in playerInv:
-        print("""\nThe decanter you hold refracts the light like a prism, each facet shining with a
-different hue. There is no drink in it, but the decanter alone would fetch a high price.""")
+        print("""\nThe decanter you hold refracts the light like a prism, each facet shining with a different hue. There is no drink in it, but the decanter alone would fetch a high price.""")
     else:
         print("\nThere is no decanter here.")
 
@@ -146,43 +128,33 @@ different hue. There is no drink in it, but the decanter alone would fetch a hig
 
 def shrinkSpellHere():
     if playerLocation == 10 and 'a SHRINK spell' in room10LuggageContents:
-        print("""\nThe suitcase is full of robes, hats, and socks, all shrunken down to travel size,
-no doubt to be un-shrunk later. Tucked into a pocket in the suitcase's lid is a scroll containing the runes for
-a shrinking spell.""")
+        print("""\nThe suitcase is full of robes, hats, and socks, all shrunken down to travel size, no doubt to be un-shrunk later. Tucked into a pocket in the suitcase's lid is a scroll containing the runes for a shrinking spell.""")
     else:
-        print("""\nThe suitcase is full of robes, hats, and socks, all shrunken down to travel size,
-no doubt to be un-shrunk later.""")
+        print("""\nThe suitcase is full of robes, hats, and socks, all shrunken down to travel size, no doubt to be un-shrunk later.""")
 
 def shrinkSpellDesc():
     if playerLocation == 10 and 'a SHRINK spell' in room10LuggageContents:
-        print("""\nThe scroll is made of fine white parchment. The runes for a shrinking spell are
-inscribed upon the paper in glowing purple ink.""")
+        print("""\nThe scroll is made of fine white parchment. The runes for a shrinking spell are inscribed upon the paper in glowing purple ink.""")
     elif 'a SHRINK spell' in playerInv:
-        print("""\nThis scroll is made of fine white parchment. The runes for a shrinking spell are
-inscribed upon the paper in glowing purple ink.""")
+        print("""\nThis scroll is made of fine white parchment. The runes for a shrinking spell are inscribed upon the paper in glowing purple ink.""")
     elif 'a SHRINK spell' in usedSpells:
-        print("""\nYou hold a small scroll with magical runes for a SHRINK spell written on it.
-The runes no longer glow now that you've used the scroll.""")
+        print("""\nYou hold a small scroll with magical runes for a SHRINK spell written on it. The runes no longer glow now that you've used the scroll.""")
     else:
         print("\nThere is no spell scroll here.")
 
 def burnSpellHere():
     if 'a BURN spell' in room16Contents:
-        print("""\nAfter rummaging around in the clutter of the attic for a little, you find a
-scroll containing the BURN spell.""")
+        print("""\nAfter rummaging around in the clutter of the attic for a little, you find a scroll containing the BURN spell.""")
     else:
         print("\nThere is nothing worth stealing among the junk in the attic, not even some spare change.")
 
 def burnSpellDesc():
     if 'a BURN spell' in room16Contents and playerLocation == 16:
-        print("""\nThe scroll is yellowed and tattered, but the ember-red runes written on
-the parchment still glow with power.""")
+        print("""\nThe scroll is yellowed and tattered, but the ember-red runes written on the parchment still glow with power.""")
     elif 'a BURN spell' in playerInv:
-        print("""\nThe scroll you hold is yellowed and tattered, but the ember-red runes
-written on the parchment still glow with power.""")
+        print("""\nThe scroll you hold is yellowed and tattered, but the ember-red runes written on the parchment still glow with power.""")
     elif 'a BURN spell' in usedSpells:
-        print("""\nYou hold a small scroll with magical runes for a BURN spell written on it.
-The runes no longer glow now that you've used the scroll.""")
+        print("""\nYou hold a small scroll with magical runes for a BURN spell written on it. The runes no longer glow now that you've used the scroll.""")
     else:
         print("""\nThere is no spell scroll here.""")
 
@@ -234,11 +206,9 @@ def keyHere():
 
 def keyDesc():
     if playerLocation == 13 and ('a silver key' in room13Contents) and (mimicAlive == False or mimicShrunk == True):
-        print("""\nIt is a simple silver key. Its head has been smithed to resemble a dragon's head. There are
-traces of mimic slime on it.""")
+        print("""\nIt is a simple silver key. Its head has been smithed to resemble a dragon's head. There are traces of mimic slime on it.""")
     elif 'a silver key' in playerInv:
-        print("""\nYou hold a simple silver key. Its head has been smithed to resemble a dragon's head. There are
-traces of mimic slime on it.""")
+        print("""\nYou hold a simple silver key. Its head has been smithed to resemble a dragon's head. There are traces of mimic slime on it.""")
     else:
         print("\nThere is no key here.")
 
@@ -262,11 +232,9 @@ def mimicDesc():
     elif mimicSeen == True and mimicAlive == True and mimicShrunk == False and mimicSleep == False:
         print("""\nThe mimic sits next Milo's bed, awaiting an unsuspecting person to open it. Either Milo somehow knows how to coax what items he needs from the mimic, or he just has a sick sense of humor. Possibly both.""")
     elif mimicSeen == True and mimicAlive == True and mimicShrunk == True:
-        print("""\nThe mimic is no longer here. It skittered under the bed after you shrank it to the size of a
-mouse, remember?""")
+        print("""\nThe mimic is no longer here. It skittered under the bed after you shrank it to the size of a mouse, remember?""")
     elif mimicSeen == True and mimicAlive == True and mimicSleep == True:
-        print("""\nThe mimic is out cold, thanks to that SLEEP spell. You can probably safely reach inside its
-toothy maw now, if you're feeling lucky.""")
+        print("""\nThe mimic is out cold, thanks to that SLEEP spell. You can probably safely reach inside its toothy maw now, if you're feeling lucky.""")
     elif mimicSeen == True and mimicAlive == False:
         if 'a silver key' in room13Contents:
             print("""\nThe mimic's corpse lies on the bedroom's plush carpet. The smell coming from the remains will stay with you for many nights to come. You see a silver key among its remains.""")
@@ -501,8 +469,7 @@ def otherCmds():
     elif (("look" in action) or ("examine" in action)) and ("burn" in action) and (("spell" in action) or ("scroll" in action)):
         burnSpellDesc()
     elif (("look" in action) or ("examine" in action)) and (("spell" in action) or ("scroll" in action)):
-        print("""\nSomething tells you that you may want to be more specific about what spell or
-scroll you're looking at. Try 'look <name> spell' or 'look <name> scroll'' instead""")
+        print("""\nSomething tells you that you may want to be more specific about what spell or scroll you're looking at. Try 'look <name> spell' or 'look <name> scroll'' instead""")
     elif (("look" in action) or ("examine" in action)) and ("mirror" in action):
         mirrorDesc()
     elif (("look" in action) or ("examine" in action)) and ("sword" in action):
@@ -535,6 +502,9 @@ scroll you're looking at. Try 'look <name> spell' or 'look <name> scroll'' inste
             shrink('a piano')
         elif ("painting" in action) or ("portrait" in action):
             shrink('a fancy painting')
+        elif ("self" in action):
+            if shrink('self') == 'death':
+                return 'death'
         else:
             print("""\nYou get the feeling that this isn't the right place or time to use the shrinking spell.""")
     elif "archwiz" in action:
@@ -607,6 +577,9 @@ def shrink(item):
             room2Contents.append('a shrunken fancy painting')
             playerInv.remove('a SHRINK spell')
             usedSpells.append('a SHRINK spell')
+        elif item == 'self':
+            print("""\nYou read aloud from the the spell scroll and a torrent of purple smoke swirls around you. When it clears, you see that you have shrunk to the size of a bug! All the furniture in the room towers over you. You only have a small amount of time to marvel at this before a passing spider eats you. You did not think this through.""")
+            return 'death'
         else:
             print("""\nYou get the feeling that this isn't the right place or time to use the shrinking spell.""")
     else:
@@ -652,15 +625,9 @@ usedSpells = []
 def introText():
     print("""Welcome to Mage's Manor!
 
-You are THE FORGETFUL THIEF, the most skilled thief in the city of LARCENIA. 
-Your expertise for breaking and entering is matched only by your ability to 
-FORGET ALL OF YOUR EQUIPMENT. You have just snuck into the manor of MILO THE 
-MAGE,in search of the CRYSTAL that is his prize possession. You have, once 
-again,forgotten all of your thieving tools at home, but the job must go on! 
-Use what's in the manor to find the CRYSTAL and GET OUT THE WAY YOU CAME.
+You are THE FORGETFUL THIEF, the most skilled thief in the city of LARCENIA. Your expertise for breaking and entering is matched only by your ability to FORGET ALL OF YOUR EQUIPMENT. You have just snuck into the manor of MILO THE MAGE, in search of the CRYSTAL that is his prize possession. You have, once again, forgotten all of your thieving tools at home, but the job must go on! Use what's in the manor to find the CRYSTAL and GET OUT THE WAY YOU CAME.
 
-You've also heard rumors there are 4 OTHER TREASURES in the house. If you're
-feeling bold, see if you can find them before leaving!
+You've also heard rumors there are 4 OTHER TREASURES in the house. If you're feeling bold, see if you can find them before leaving!
 
 Would you like some instructions on how to play this game? (Y/N)
 
@@ -680,8 +647,7 @@ def introQuestion1():
         return False
 
 def tutorial():
-    print("""This is a text-based adventure game. You interact with the world
-by typing what you want to do and pressing enter. Some common commands are:
+    print("""This is a text-based adventure game. You interact with the world by typing what you want to do and pressing enter. Some common commands are:
 
     GO <DIRECTION>, <DIRECTION>, or <FIRST LETTER OF DIRECTION>
         EX: 'go north', 'north', or 'n'
@@ -751,14 +717,11 @@ plantSeen = False
 plantShrunk = False
 hallUnlocked = False
 
-while (alive == True) and (finishedGame == False):
+while ((alive == True) and (finishedGame == False)):
 
 #ROOM 1 - KITCHEN
     while playerLocation == 1 and roomRefresh == True:
-        print("""\nYou stand in a cozy, well maintained kitchen. A window looks
-out over a garden growing along the side of the house. In one corner is the
-cellar door you used to sneak into the manor. There are doorways to the north
-and south.""")
+        print("""\nYou stand in a cozy, well maintained kitchen. A window looks out over a garden growing along the side of the house. In one corner is the cellar door you used to sneak into the manor. There are doorways to the north and south.""")
         roomRefresh = False
     while playerLocation == 1 and roomRefresh == False:
         action = input("\n> ")
@@ -782,14 +745,13 @@ and south.""")
             else:
                 print("\nYou can't leave the mansion until you find Milo's Crystal, remember?")
         else:
-            otherCmds()
+            if otherCmds() == 'death':
+                alive = False
+                break
 
 # ROOM 2 - DINING ROOM
     while playerLocation == 2 and roomRefresh == True:
-        print("""\nYou are in a long dining room. The entire northern wall of
-the dining room is stained glass windows depicting Milo's many magical mis-
-adventures. The table is laid out with shining sets of flatware.""",paintingHere(),
-"""Exits are west and south.""")
+        print("""\nYou are in a long dining room. The entire northern wall of the dining room is stained glass windows depicting Milo's many magical misadventures. The table is laid out with shining sets of flatware.""",paintingHere(),"""Exits are west and south.""")
         roomRefresh = False
     while playerLocation == 2 and roomRefresh == False:
         action = input("\n> ")
@@ -815,14 +777,12 @@ stole it already.""")
         elif (action == "e") or ("east" in action):
             dirFail()
         else:
-            otherCmds()
+            if otherCmds() == 'death':
+                alive = False
 
 # ROOM 3 - PARLOR
     while playerLocation == 3 and roomRefresh == True:
-        print("""\nYou are in a parlor with plush red carpet and ornate wall-paper.
-A soft-looking couch sits in front of a bank of windows looking out on the lawn.""",
-pianoHere(),"""Exits are to the
-north and east.""")
+        print("""\nYou are in a parlor with plush red carpet and ornate wall-paper. A soft-looking couch sits in front of a bank of windows looking out on the lawn.""",pianoHere(),"""Exits are to the north and east.""")
         roomRefresh = False
     while playerLocation == 3 and roomRefresh == False:
         action = input("\n> ")
@@ -847,22 +807,15 @@ north and east.""")
         elif (action == "w") or ("west" in action):
             dirFail()
         else:
-            otherCmds()
+            if otherCmds() == 'death':
+                alive = False
 
 # ROOM 4 - FOYER
     while (playerLocation == 4 and roomRefresh == True) and ('an ancient sword' in room4Contents):
-        print("""\nYou stand in a large foyer with high ceilings. A large crystal chandelier hangs
-overhead. A loft on the second floor looks down onto the foyer. You also see
-doorways to the west and east. The manor's front door is at the south end of
-the foyer, but it's probably best not to walk out the front carrying all your
-loot.""",swordHere())
+        print("""\nYou stand in a large foyer with high ceilings. A large crystal chandelier hangs overhead. A loft on the second floor looks down onto the foyer. You also see doorways to the west and east. The manor's front door is at the south end of the foyer, but it's probably best not to walk out the front carrying all your loot.""",swordHere())
         roomRefresh = False
     while (playerLocation == 4 and roomRefresh == True) and ('an ancient sword' not in room4Contents):
-        print("""\nYou stand in a large foyer with high ceilings. A large crystal chandelier hangs
-overhead. A loft on the second floor looks down onto the foyer. You also see
-doorways to the west and east. The manor's front door is at the south end of
-the foyer, but it's probably best not to walk out the front carrying all your
-loot.""",swordHere())
+        print("""\nYou stand in a large foyer with high ceilings. A large crystal chandelier hangs overhead. A loft on the second floor looks down onto the foyer. You also see doorways to the west and east. The manor's front door is at the south end of the foyer, but it's probably best not to walk out the front carrying all your loot.""",swordHere())
         roomRefresh = False
     while playerLocation == 4 and roomRefresh == False:
         action = input("\n> ")
@@ -880,21 +833,18 @@ loot.""",swordHere())
             playerLocation = 6
             roomRefresh = True
         elif (action == "s") or ("south" in action):
-            print("""What did I just say about going out the front door? You just got out of the
-clink a little while ago. You can't do another nickel.""")
+            print("""What did I just say about going out the front door? You just got out of the clink a little while ago. You can't do another nickel.""")
         elif (action == "w") or ("west" in action):
             playerLocation = 3
             roomRefresh = True
         else:
-            otherCmds()
+            if otherCmds() == 'death':
+                alive = False
 
 # ROOM 5 - STUDY
 
     while playerLocation == 5 and roomRefresh == True:
-        print("""\nYou stand in Milo's study. A surprisingly unassuming desk is crammed into one
-corner, and is stacked with a variety of papers and scrolls. The back wall of
-the study is taken up by a vast fireplace. Embers still glow in the ash. A large
-green armchair sits in front of the fireplace.""",bookHere(),"""The only exit is north.""")
+        print("""\nYou stand in Milo's study. A surprisingly unassuming desk is crammed into one corner, and is stacked with a variety of papers and scrolls. The back wall of the study is taken up by a vast fireplace. Embers still glow in the ash. A large green armchair sits in front of the fireplace.""",bookHere(),"""The only exit is north.""")
         roomRefresh = False
     while playerLocation == 5 and roomRefresh == False:
         action = input("\n> ")
@@ -918,14 +868,13 @@ green armchair sits in front of the fireplace.""",bookHere(),"""The only exit is
         elif (action == "e") or ("east" in action):
             dirFail()
         else:
-            otherCmds()
+            if otherCmds() == 'death':
+                alive = False
 
 # ROOM 6 - F1 STAIRCASE
 
     while playerLocation == 6 and roomRefresh == True:
-        print("""\nThis narrow hall consists of a set of stairs leading up to the second floor, a
-doorway to the west, and a heavy oak door to the south. A liminal space, if
-there ever was one.""")
+        print("""\nThis narrow hall consists of a set of stairs leading up to the second floor, a doorway to the west, and a heavy oak door to the south. A liminal space, if there ever was one.""")
         roomRefresh = False
     while playerLocation == 6 and roomRefresh == False:
         action = input("\n> ")
@@ -946,14 +895,14 @@ there ever was one.""")
             playerLocation = 7
             roomRefresh = True
         else:
-            otherCmds()
+            if otherCmds() == 'death':
+                alive = False
 
 # ROOM 7 - F2 STAIRCASE
 #Potential commands: "slide staircase" "fall down staircase" "slide railing/bannister."
 
     while playerLocation == 7 and roomRefresh == True:
-        print("""\nYou are on the second-floor landing at the top of the staircase.
-There is an open archway to the west and a wooden door to the south.""")
+        print("""\nYou are on the second-floor landing at the top of the staircase. There is an open archway to the west and a wooden door to the south.""")
         roomRefresh = False
     while playerLocation == 7 and roomRefresh == False:
         action = input("\n> ")
@@ -974,15 +923,15 @@ There is an open archway to the west and a wooden door to the south.""")
             playerLocation = 6
             roomRefresh = True
         else:
-            otherCmds()
+            if otherCmds() == 'death':
+                alive = False
         
 
 # ROOM 8 - SIDE CORRIDOR
 #Potential Cmds: lift carpet, get note
 
     while playerLocation == 8 and roomRefresh == True:
-        print("""\nYou stand in a small corridor with several rooms shooting off
-of it.""",carpetDesc(),"""There are doors to the north, east, south, and west.""")
+        print("""\nYou stand in a small corridor with several rooms shooting off of it.""",carpetDesc(),"""There are doors to the north, east, south, and west.""")
         roomRefresh = False
     while playerLocation == 8 and roomRefresh == False:
         action = input("\n> ")
@@ -1014,16 +963,14 @@ of it.""",carpetDesc(),"""There are doors to the north, east, south, and west.""
             playerLocation = 9
             roomRefresh = True
         else:
-            otherCmds()
+            if otherCmds() == 'death':
+                alive = False
 
 # ROOM 9 - BATHROOM
 #potential commands: turn on tub,look mirror,take bath,take/look/examine mirror.
 
     while playerLocation == 9 and roomRefresh == True:
-        print("""\nYou are in a bathroom. The floor is made of gleaming white tiles
-and the wallpaper shows images of birds in flight. A large, clawfoot tub takes
-up one side of the room. Beside it is a marble sink with brass fittings.""",mirrorHere(),"""The
-only exit is west.""")
+        print("""\nYou are in a bathroom. The floor is made of gleaming white tiles and the wallpaper shows images of birds in flight. A large, clawfoot tub takes up one side of the room. Beside it is a marble sink with brass fittings.""",mirrorHere(),"""The only exit is west.""")
         roomRefresh = False
     while playerLocation == 9 and roomRefresh == False:
         action = input("\n> ")
@@ -1042,16 +989,14 @@ only exit is west.""")
         elif (action == "e") or ("east" in action):
             dirFail()
         else:
-            otherCmds()
+            if otherCmds() == 'death':
+                alive = False
 
 # ROOM 10 - GUEST ROOM
 #potential commands:look suitcase,open suitcase,take suitcase,look window (good opportunity for a city description here...)
 
     while playerLocation == 10 and roomRefresh == True:
-        print("""\nYou stand in the manor's guest room. A window looks out over
-the front yard and the street. The bed's sheets and blankets are rumpled, like
-someone has been sleeping here. In the corner you see a luggage rack with a
-brown leather suitcase on it. There is a door to the north.""")
+        print("""\nYou stand in the manor's guest room. A window looks out over the front yard and the street. The bed's sheets and blankets are rumpled, like someone has been sleeping here. In the corner you see a luggage rack with a brown leather suitcase on it. There is a door to the north.""")
         roomRefresh = False
     while playerLocation == 10 and roomRefresh == False:
         action = input("\n> ")
@@ -1072,15 +1017,14 @@ brown leather suitcase on it. There is a door to the north.""")
         elif (action == "e") or ("east" in action):
             dirFail()
         else:
-            otherCmds()
+            if otherCmds() == 'death':
+                alive = False
 
 # ROOM 11 - LINEN CLOSET
 #potential commands: take towel, open attic door
 
     while playerLocation == 11 and roomRefresh == True:
-        print("""\nThis is a small walk-in linen closet, less than two
-arms-lengths across. A variety of towels, linens, and rags clutter the shelves.""",atticDoorHere(),
-"""The exit back out into the hall is east.""")
+        print("""\nThis is a small walk-in linen closet, less than two arms-lengths across. A variety of towels, linens, and rags clutter the shelves.""",atticDoorHere(),"""The exit back out into the hall is east.""")
         roomRefresh = False
     while playerLocation == 11 and roomRefresh == False:
         action = input("\n> ")
@@ -1104,15 +1048,13 @@ arms-lengths across. A variety of towels, linens, and rags clutter the shelves."
             playerLocation = 16
             roomRefresh = True
         else:
-            otherCmds()
+            if otherCmds() == 'death':
+                alive = False
 
 # ROOM 12 - LOFT
 
     while playerLocation == 12 and roomRefresh == True:
-        print("""\nYou stand in the loft, which adjoins the various spaces of the
-second floor. Looking out over the railing on the southern side of the lift
-gives you a view of the chandelier and the foyer below. There are doors to the
-west and north, and an open archway to the east.""")
+        print("""\nYou stand in the loft, which adjoins the various spaces of the second floor. Looking out over the railing on the southern side of the lift gives you a view of the chandelier and the foyer below. There are doors to the west and north, and an open archway to the east.""")
         roomRefresh = False
     while playerLocation == 12 and roomRefresh == False:
         action = input("\n> ")
@@ -1142,16 +1084,14 @@ west and north, and an open archway to the east.""")
             playerLocation = 4
             roomRefresh = True
         else:
-            otherCmds()
+            if otherCmds() == 'death':
+                alive = False
 
 # ROOM 13 - MASTER BEDROOM
 #potential commands:, sleep bed, look chest, look ceiling
 
     while playerLocation == 13 and roomRefresh == True:
-        print("""\nThis is the bedroom where Milo lays his pointy-hatted head. The ceiling is
-painted blue-black and dotted with gold-leaf stars. A regal four-poster bed
-takes up the center of the space,""", mimicHere(),keyHere(),
-"""There are exits to the east and south.""")
+        print("""\nThis is the bedroom where Milo lays his pointy-hatted head. The ceiling is painted blue-black and dotted with gold-leaf stars. A regal four-poster bed takes up the center of the space,""", mimicHere(),keyHere(),"""There are exits to the east and south.""")
         roomRefresh = False
     while playerLocation == 13 and roomRefresh == False:
         action = input("\n> ")
@@ -1200,15 +1140,14 @@ takes up the center of the space,""", mimicHere(),keyHere(),
             playerLocation = 12
             roomRefresh = True
         else:
-            otherCmds()
+            if otherCmds() == 'death':
+                alive = False
 
 # ROOM 14 - BALCONY
 #potential commands:look city,sit table,climb balcony (prohibit)
 
     while playerLocation == 14 and roomRefresh == True:
-        print("""\nYou stand on the balcony outside Milo's bedroom. The cool night
-air blows against your skin and you can see the lights of the city beyond the
-edge of Milo's estate. There is a small bistro table and umbrella here""",decanterHere(),"""The entrance back into the house is north.""")
+        print("""\nYou stand on the balcony outside Milo's bedroom. The cool night air blows against your skin and you can see the lights of the city beyond the edge of Milo's estate. There is a small bistro table and umbrella here""",decanterHere(),"""The entrance back into the house is north.""")
         roomRefresh = False
     while playerLocation == 14 and roomRefresh == False:
         action = input("\n> ")
@@ -1227,7 +1166,8 @@ edge of Milo's estate. There is a small bistro table and umbrella here""",decant
         elif (action == "e") or ("east" in action):
             dirFail()
         else:
-            otherCmds()
+            if otherCmds() == 'death':
+                alive = False
 
 # ROOM 15 - TROPHY HALL
 #potential commands:look gem (this is it, this is what you came for), look vines (the vines writhe!)
@@ -1235,9 +1175,7 @@ edge of Milo's estate. There is a small bistro table and umbrella here""",decant
 # check for traps (defer to vines)
 
     while playerLocation == 15 and roomRefresh == True:
-        print("""\nYou stand in Milo's trophy hall, where he stores the treasures
-from his various magical conquests. The severed and stuffed heads of countless
-mythical beasts line the walls.""",crystalHere(),plantHere(),"""The only exit is south.""")
+        print("""\nYou stand in Milo's trophy hall, where he stores the treasures from his various magical conquests. The severed and stuffed heads of countless mythical beasts line the walls.""",crystalHere(),plantHere(),"""The only exit is south.""")
         roomRefresh = False
     while playerLocation == 15 and roomRefresh == False:
         action = input("\n> ")
@@ -1283,16 +1221,13 @@ mythical beasts line the walls.""",crystalHere(),plantHere(),"""The only exit is
         elif (action == "e") or ("east" in action):
             dirFail()
         else:
-            otherCmds()
+            if otherCmds() == 'death':
+                alive = False
 
 # ROOM 16 - ATTIC
 
     while playerLocation == 16 and roomRefresh == True:
-        print("""\nYou find yourself in the manor's attic. The ceilings are low
-and bats roost in the rafters. The attic is cluttered with junk of all sorts--
-boxes, trunks, mannequins (creepy!), racks of old wizard's robes, and more. A
-single window at the end of the attic allows faint mooonlight in. The only exit
-is the attic door leading back down to the second floor.""")
+        print("""\nYou find yourself in the manor's attic. The ceilings are low and bats roost in the rafters. The attic is cluttered with junk of all sorts-- boxes, trunks, mannequins (creepy!), racks of old wizard's robes, and more. A single window at the end of the attic allows faint mooonlight in. The only exit is the attic door leading back down to the second floor.""")
         roomRefresh = False
     while playerLocation == 16 and roomRefresh == False:
         action = input("\n> ")
@@ -1315,28 +1250,27 @@ is the attic door leading back down to the second floor.""")
             playerLocation = 11
             roomRefresh = True
         else:
-            otherCmds()
+            if otherCmds() == 'death':
+                alive = False
 
-while (alive == False) and (finishedGame == False):
+if (alive == False) and (finishedGame == False):
     print("""================================\nYou had a good run, but you ultimately perished in Milo's manor. You managed to collect""",calcScore(),"""extra treasures before doing so.""")
     action = input("\n> ")
 
-while (alive == True) and (finishedGame == True):
-    print("""\nCongratulations! Using nothing but your cunning and an assortment
-of random objects, you successfully robbed the home of MILO THE MAGE. """)
+if (alive == True) and (finishedGame == True):
+    print("""\nCongratulations! Using nothing but your cunning and an assortment of random objects, you successfully robbed the home of MILO THE MAGE.\n""")
     if calcScore() == 0:
         print("")
     elif calcScore() == 1:
         print("""You were able to find""",calcScore(),"""extra treasure while you were at it.\n""")
     elif calcScore() == 4:
-        print("""You were able to find all""",calcScore(),"""extra treasures while you were
-at it. With the money from this job, you should finally be able to retire and live a
-life of luxury somewhere in the Dragon Sea. You can almost taste the daiquiris now!\n""") 
+        print("""You were able to find all""",calcScore(),"""extra treasures while you were at it. With the money from this job, you should finally be able to retire and live a life of luxury somewhere in the Dragon Sea. You can almost taste the daiquiris now!\n""") 
     else:
         print("""You were able to find""",calcScore(),"""extra treasures while you were at it.\n""")
-    print("""You emerge from a sewer grate in a nearby alleyway and slip off into the night.
-There will be other houses to heist, places to pilfer, residences to ransack,
-but tonight... THE FORGETFUL THIEF celebrates!
+    print("""You emerge from a sewer grate in a nearby alleyway and slip off into the night. There will be other houses to heist, places to pilfer, residences to ransack, but tonight... THE FORGETFUL THIEF celebrates!
 
 ... Now you just have to remember where your HIDEOUT is.""")
     action = input("\n> ")
+
+            
+
