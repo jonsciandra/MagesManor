@@ -623,7 +623,7 @@ room16Contents = ['a BURN spell']
 usedSpells = []
 
 def introText():
-    print("""Welcome to Mage's Manor!
+    print("""Welcome to MAGE'S MANOR!
 
 You are THE FORGETFUL THIEF, the most skilled thief in the city of LARCENIA. Your expertise for breaking and entering is matched only by your ability to FORGET ALL OF YOUR EQUIPMENT. You have just snuck into the manor of MILO THE MAGE, in search of the CRYSTAL that is his prize possession. You have, once again, forgotten all of your thieving tools at home, but the job must go on! Use what's in the manor to find the CRYSTAL and GET OUT THE WAY YOU CAME.
 
@@ -633,6 +633,29 @@ Would you like some instructions on how to play this game? (Y/N)
 
 *****
 """)
+
+def introScreen():
+    print("""
+╔═════════════════════════════════╗     █████
+║ THE FORGETFUL THIEF, EPISODE I: ║    █     █         ████████████████████████████████████
+╚═════════════════════════════════╝   ██             ██████████████████████████████████████
+                                      ██           ████████████████████████████████████████
+██   ██   █     ███  █████ █  ███      █     █ █████████████████████████▒▒▒▒▒▒▒▒▒▒█████████
+█ █ █ █   █    █   █ █       █   █      █████      ████████████████╳████████▒▒▒▒▒▒▒▒▒▒▒████
+█  █  █  █ █  █      █████   █                     ████████████████╳███████████████████████
+█     █  ███  █   ██ █        ███                  ████████████████████████████████████████
+█     █ █   █ █    █ █      █    █                 █╬╬█╬╬██╬╬█╬╬██╳╳╳██╬╬█╬╬██╬╬█╬╬████████
+█     █ █   █  ████  █████   ████                  █╬╬█╬╬██╬╬█╬╬██╳╳╳██╬╬█╬╬██╬╬█╬╬████████
+                                                   ███████████████╳╳╳██████████████████████
+██   ██   █   ██     █   ██   ████      ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒████████╳╳╳██████████████████████
+█ █ █ █   █   █ █    █  █  █  █   █          ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██████████████████████████████
+█  █  █  █ █  █  █   █ █    █ █   █                ███████████████║║║████████████████▒▒▒▒▒▒▒
+█     █  ███  █   █  █ █    █ ████                 █╬╬█╬╬██╬╬█╬╬█║║║║║█╬╬█╬╬██╬╬█╬╬█████▒▒▒▒▒
+█     █ █   █ █    █ █  █  █  █  █                 █╬╬█╬╬██╬╬█╬╬█║║║║║█╬╬█╬╬██╬╬█╬╬██▒▒▒▒▒█
+█     █ █   █ █     ██   ██   █   █                ██████████████║║║║║█████████████████████
+
+""")
+    input("Press ENTER to begin your journey!\n")
 
 def introQuestion1():
     action = input("\n> ")
@@ -687,6 +710,7 @@ def areYouReady():
 q1Answered = False
 q2Answered = False
 
+introScreen()
 introText()
 while q1Answered == False:
     q1Answered = introQuestion1()
