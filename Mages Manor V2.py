@@ -526,8 +526,33 @@ def otherCmds():
         elif ("self" in action):
             if shrink('self') == 'death':
                 return 'death'
+        elif action == 'shrink':
+            shrink('nothing')
         else:
-            print("""\nYou get the feeling that this isn't the right place or time to use the shrinking spell.""")
+            if 'a SHRINK spell' in playerInv:
+                print("You get the feeling this isn't the appropriate place to use the SHRINk spell.")
+            elif 'a SHRINK spell' in usedSpells:
+                print("You've already used the SHRINK spell.")
+            else:
+                print("You do not have a SHRINK spell.")
+    elif "burn" in action:
+        if ("house" or "manor" or "mansion") in action:
+            burn('house')
+        elif action == 'burn':
+            burn('nothing')
+        elif "door" in action:
+            burn('door')
+        elif "self" in action:
+            burn('self')
+        else:
+            burn('fail')
+    elif "sleep" in action:
+        if action == 'sleep':
+            sleep('nothing')
+        elif "self" in action:
+            sleep('self')
+        else:
+            sleep('fail')
     elif "archwiz" in action:
         if "wish" in action:
             print("\nAsk and ye shall receive!")
@@ -603,10 +628,44 @@ def shrink(item):
         elif item == 'self':
             print("""\nYou read aloud from the the spell scroll and a torrent of purple smoke swirls around you. When it clears, you see that you have shrunk to the size of a bug! All the furniture in the room towers over you. You only have a small amount of time to marvel at this before a passing spider eats you. You did not think this through.""")
             return 'death'
+        elif item == 'nothing':
+            print("\n Please be more specific when casting a spell. Ex: SHRINK <OBJECT>")
         else:
             print("""\nYou get the feeling that this isn't the right place or time to use the shrinking spell.""")
     else:
         print("\nYou do not have a SHRINK spell.")
+
+def burn(item):
+    if 'a BURN spell' in playerInv:
+        if item == 'house':
+            print("\nWhoa there, you're a thief, not an arsonist. If you want to burn the place down, go join the Arsonists' Guild (though this will be difficult, as their local office recently burned down).")
+        elif item == 'door':
+            print("\nThe door looks quite solid. You're not sure a single blast of fire will be sufficient to destroy it.")
+        elif item == 'self':
+            print("\n... You good?")
+        elif item == 'nothing':
+            print("\n Please be more specific when casting a spell. Ex: BURN <OBJECT>")
+        else:
+            print("""\nYou get the feeling that this isn't the right place or time to use the BURN spell.""")
+    elif 'a BURN spell' in usedSpells:
+        print("\nYou've already used the BURN spell.")
+    else:
+        print("\nYou do not have a BURN spell.")
+
+def sleep(item):
+    if 'a SLEEP spell' in playerInv:
+        if item == 'self':
+            print('\nAs you consider using the sleep spell to take a catnap, you remember the words of your teacher in the Thieves Guild: "The first step in committing a good burglary is being conscious to do it."')
+        elif item == 'nothing':
+            print("\n Please be more specific when casting a spell. Ex: SLEEP <OBJECT>")
+        elif item == 'fail':
+            print("\nYou know from experience that sleep spells only work on living things that are capable of sleeping.")
+        else:
+            print("You get the feeling that this isn't the right place or time to use the SLEEP spell.")      
+    elif 'a SLEEP spell' in usedSpells:
+        print("\nYou've already used the SLEEP spell.")
+    else:
+        print("\nYou do not have a SLEEP spell.")
 
 def swingSword():
     if 'an ancient sword' in playerInv:
