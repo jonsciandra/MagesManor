@@ -454,7 +454,28 @@ def pianoDesc():
         print("""\nThe piano is expertly crafted and you suspect it would fetch a great sum if you could move the darn thing.""")
     else:
         print("""\nThere is no piano here.""")
-        
+
+def help():
+    print("""
+    GO <DIRECTION>, <DIRECTION>, or <FIRST LETTER OF DIRECTION>
+        Move in a specific direction, often to another room.
+        EX: 'go north', 'north', or 'n'
+    LOOK
+        Gives you a description of the room you're currently in.
+        EX: 'look'
+    LOOK <OBJECT> or EXAMINE <OBJECT>
+        Gives you a detailed description of a specific item or object.
+        EX: 'look piano' or 'examine piano' 
+    TAKE <OBJECT> or GET <OBJECT>
+        Pick up an object in the room.
+        EX: 'take sword' or 'get sword'
+    SEARCH <OBJECT>
+        Closely examine an object to see if it holds anything else.
+        EX: 'search chest'
+    USE <OBJECT>
+        Try to use a specific object, either in your inventory or in the room.
+        EX: 'use sword'""")
+
 #### END ITEM ZONE ####
 
 import webbrowser
@@ -515,9 +536,10 @@ def otherCmds():
             playerInv.append('a SLEEP spell')
             playerInv.append('a silver key')
             playerInv.append('an ancient sword')
+    elif ("help" in action):
+        help()
     else:
-        print("\nPlease try another command!")
-    
+        print("\nPlease try another command!")  
 
 def dirFail():
     print("\nYou can't go that way here!")
@@ -525,6 +547,7 @@ def dirFail():
 # FUNCTION for checking player's inventory. Prints message in response.
 
 def inventoryCheck():
+    print("\nYou open your backpack...")
     print("\nINVENTORY: " + ", ".join(playerInv) + "\n")
     if len(usedSpells)>0:
         print("USED SPELLS: " + ", ".join(usedSpells) + "\n")
@@ -625,7 +648,7 @@ usedSpells = []
 def introText():
     print("""Welcome to MAGE'S MANOR!
 
-You are THE FORGETFUL THIEF, the most skilled thief in the city of LARCENIA. Your expertise for breaking and entering is matched only by your ability to FORGET ALL OF YOUR EQUIPMENT. You have just snuck into the manor of MILO THE MAGE, in search of the CRYSTAL that is his prize possession. You have, once again, forgotten all of your thieving tools at home, but the job must go on! Use what's in the manor to find the CRYSTAL and GET OUT THE WAY YOU CAME.
+You are THE FORGETFUL THIEF, the most skilled thief in the city of LARCENIA. Your expertise for breaking and entering is matched only by your ability to FORGET ALL OF YOUR EQUIPMENT. You have just snuck into the manor of MILO THE MAGE, in search of the CRYSTAL that is his prize possession. You have, once again, forgotten all of your thieving tools at home and only have your trusty backpack, but the job must go on! Use what's in the manor to find the CRYSTAL and GET OUT THE WAY YOU CAME.
 
 You've also heard rumors there are 4 OTHER TREASURES in the house. If you're feeling bold, see if you can find them before leaving!
 
@@ -673,6 +696,7 @@ def tutorial():
     print("""This is a text-based adventure game. You interact with the world by typing what you want to do and pressing enter. Some common commands are:
 
     GO <DIRECTION>, <DIRECTION>, or <FIRST LETTER OF DIRECTION>
+        Move in a specific direction, often to another room.
         EX: 'go north', 'north', or 'n'
     LOOK
         Gives you a description of the room you're currently in.
@@ -690,7 +714,9 @@ def tutorial():
         Try to use a specific object, either in your inventory or in the room.
         EX: 'use sword'
 
-There are other commands besides these, so don't hesitate to experiment!
+There are other commands besides these, so don't hesitate to experiment. If you ever need a reminder of what common commands exist, type "help."
+
+Also, some players find it useful to draw a map as they go. If you have trouble navigating the mansion, give it a try!
 
 ***
 """)
@@ -775,7 +801,7 @@ while ((alive == True) and (finishedGame == False)):
 
 # ROOM 2 - DINING ROOM
     while playerLocation == 2 and roomRefresh == True:
-        print("""\nYou are in a long dining room. The entire northern wall of the dining room is stained glass windows depicting Milo's many magical misadventures. The table is laid out with shining sets of flatware.""",paintingHere(),"""Exits are west and south.""")
+        print("""\nYou are in a long dining room. The entire northern wall of the dining room is stained glass windows depicting Milo's many magical misadventures. The oak table has been polished to a mirror-shine.""",paintingHere(),"""Exits are west and south.""")
         roomRefresh = False
     while playerLocation == 2 and roomRefresh == False:
         action = input("\n> ")
@@ -1027,8 +1053,10 @@ stole it already.""")
         action = action.lower()
         if action == "look":
             roomRefresh = True
-        elif (("search" in action) or ("look" in action)) and (("suitcase" in action) or ("luggage" in action)):
+        elif (("search" in action) or ("look" in action)) and (("suit" and "case" in action) or ("luggage" in action)):
             shrinkSpellHere()
+        elif (("get" in action) or ("take" in action)) and (("suit" and "case" in action) or ("luggage" in action)):
+            print("You already have a backpack for carrying your loot, and the suitcase would probably be cumbersome to carry around as you ransack the place.")
         elif (("get" in action) or ("take" in action)) and (("spell" in action) or ("scroll" in action)):
             getItem(room10LuggageContents,'a SHRINK spell')
         elif (action == "n") or ("north" in action):
@@ -1055,10 +1083,14 @@ stole it already.""")
         action = action.lower()
         if action == "look":
             roomRefresh = True
-        elif (("open" in action) or ("pull" in action)) and (("door" in action) or ("cord" in action)):
+        elif (("open" in action) or ("pull" in action) or ("use" in action)) and (("door" in action) or ("cord" in action)):
             atticDoorOutcome = atticDoor()
             if atticDoorOutcome == 'attic open':
                 atticOpen = True
+        elif ("search" in action):
+            print("You search the closet but find nothing of interest.")
+        elif (("take" in action) or ("get" in action)) and (("rag" in action) or ("towel" in action) or ("linens" in action)):
+            print("I'd advise against it. God knows what sort of ectoplasm or monster blood Milo's wiped up with these.")
         elif (action == "n") or ("north" in action):
             dirFail()
         elif (action == "s") or ("south" in action):
@@ -1295,6 +1327,3 @@ if (alive == True) and (finishedGame == True):
 
 ... Now you just have to remember where your HIDEOUT is.""")
     action = input("\n> ")
-
-            
-
