@@ -456,7 +456,31 @@ def pianoDesc():
         print("""\nThere is no piano here.""")
 
 def help():
-    print("""
+	if 'go' in action:
+		print("""\nThis command can be used with a direction such as 'north,' 'south,' 'up,' 'down,' etc. to move your character in that direction. In most cases, this will take you to another room.
+
+	EX: 'go north,' 'north,' 'n,' 'up,' 'go up'""")
+	elif ('look' in action) or ('examine' in action):
+		print("""\nTyped on its own, the 'look' command shows you the description of the room you're currently in.
+		
+Typed with a specific object or feature, the 'look' or 'examine' command gives you a more detailed description of that particular object.
+
+	EX: 'look sword', 'examine piano'""")   
+	elif 'search' in action:
+	    print("""\nTyped with an object, the 'search' command allows you conduct a more thorough search of a container or feature to see if it holds anything hidden.
+	    
+	EX: 'search desk', 'search chest'""")
+     elif ('take' in action) or ('get' in action):
+     	print("""\nTyped with an object, the 'get' or 'take' command allows you to pick up an object, provided it can be picked up.
+     EX: 'get sword', 'take sword'""")
+     elif ('use' in action):
+     	print("""\nTyped with an object, the 'use' command allows you to use an object for its intended purpose.
+     EX: 'use sword', 'use key'
+     
+Typed with an object and a target, the 'use' command will allow you to use an object on a specific subject.
+	EX: 'use sword on goblin','use key on door'"""')
+	else:
+		print("""
     GO <DIRECTION>, <DIRECTION>, or <FIRST LETTER OF DIRECTION>
         Move in a specific direction, often to another room.
         EX: 'go north', 'north', or 'n'
@@ -474,7 +498,11 @@ def help():
         EX: 'search chest'
     USE <OBJECT>
         Try to use a specific object, either in your inventory or in the room.
-        EX: 'use sword'""")
+        EX: 'use sword'
+	HELP <COMMAND>
+		Provides more detailed explanations of specific commands and additional examples.
+		EX: 'help use', 'help search'""")
+		
 
 #### END ITEM ZONE ####
 
@@ -497,7 +525,7 @@ def otherCmds():
         swordDesc()
     elif (("look" in action) or ("examine" in action)) and ("decanter" in action):
         decanterDesc()
-    elif (("look" or "examine") in action) and ("painting" in action):
+    elif (("look" in action) or ("examine" in action)) and ("painting" in action):
         paintingDesc()
     elif (("look" in action) or ("examine" in action) or ("read" in action)) and ("note" in action):
         noteDesc()
@@ -772,8 +800,11 @@ def tutorial():
     USE <OBJECT>
         Try to use a specific object, either in your inventory or in the room.
         EX: 'use sword'
+	HELP <COMMAND>
+		Provides more detailed explanations of specific commands and additional examples.
+		EX: 'help use', 'help search'
 
-There are other commands besides these, so don't hesitate to experiment. If you ever need a reminder of what common commands exist, type "help."
+There are other commands besides these, so don't hesitate to experiment. If you ever need a reminder of what common commands exist, simply type "help."
 
 Also, some players find it useful to draw a map as they go. If you have trouble navigating the mansion, give it a try!
 
@@ -867,7 +898,7 @@ while ((alive == True) and (finishedGame == False)):
         action = action.lower()
         if action == "look":
             roomRefresh = True
-        elif (("take" or "get") in action) and ("painting" in action):
+        elif (("take" in action) or ("get" in action)) and ("painting" in action):
             if 'a fancy painting' in room2Contents:
                 print("\nIt's a nice painting, but it's too large to carry with you.")
             elif 'a shrunken fancy painting' in room2Contents:
@@ -960,7 +991,7 @@ stole it already.""")
         action = action.lower()
         if action == "look":
             roomRefresh = True
-        elif (("search" in action) or ("look" in action)) and ("desk" in action):
+        elif (("search" in action) or ("look" in action) or ("examine" in action)) and ("desk" in action):
             sleepSpellHere()
         elif ("get" in action) or ("take" in action):
             if (("book" in action) or ("tome" in action)) or ("dummies" in action) or ("spell scrolls" in action):
@@ -1182,7 +1213,7 @@ stole it already.""")
             if hallUnlocked == True:
                 playerLocation = 15
                 roomRefresh = True
-        elif (("open" in action) or ("unlock" in action) or ("force" in action)) and ("door" in action):
+        elif ((("open" in action) or ("unlock" in action) or ("force" in action)) and ("door" in action)) or (("use" in action) and ("key" in action")):
             hallDoorOutcome = hallDoor()
             if hallDoorOutcome == 'hall door unlocked':
                 hallUnlocked = True
