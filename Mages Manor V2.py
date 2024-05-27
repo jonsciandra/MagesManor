@@ -33,10 +33,10 @@ def swordHere():
 def swordDesc():
     if playerLocation == 4 and 'an ancient sword' in room4Contents:
         print("""\nThe sword has a gleaming silver handle inlaid with gems and its
-razor-thin blade glows with a faint white light, like moonlight.""")
+gossamer-thin blade glows with a faint white light, like moonlight.""")
     elif 'an ancient sword' in playerInv:
         print("""\nThe sword you carry has a gleaming silver handle inlaid with gems
-and its razor-thin blade glows with a faint white light, like moonlight.""")
+and its gossamer-thin blade glows with a faint white light, like moonlight.""")
     elif 'a broken ancient sword' in playerInv:
         print("""\nDamn, you really goosed this thing, huh? Guess it was meant mostly for show. The hilt might still be worth something, at least.""")
     else:
