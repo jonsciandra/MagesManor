@@ -482,6 +482,10 @@ Typed with a specific object or feature, the 'look' or 'examine' command gives y
 Typed with an object and a target, the 'use' command will allow you to use an object on a specific subject.
 
     EX: 'use sword on goblin','use key on door'""")
+    elif ('inv' in action):
+        print("""\n The 'inv' or 'inventory' command displays the items you currently hold as well as your current score. If you have used any spells, your inventory will also display a 'used spells' section as well.
+
+    EX: 'inv' or 'inventory'""")
     else:
         print("""
     GO <DIRECTION>, <DIRECTION>, or <FIRST LETTER OF DIRECTION>
@@ -502,17 +506,21 @@ Typed with an object and a target, the 'use' command will allow you to use an ob
     USE <OBJECT>
         Try to use a specific object, either in your inventory or in the room.
         EX: 'use sword'
-  HELP <COMMAND>
-    Provides more detailed explanations of specific commands and additional examples.
-    EX: 'help use', 'help search'""")
-
+    INV, INVENTORY
+        Displays the items you currently hold as well as your current score.
+        EX: 'inv' or 'inventory'
+    HELP <COMMAND>
+        Provides more detailed explanations of specific commands and additional examples.
+        EX: 'help use', 'help search'""")
 
 #### END ITEM ZONE ####
 
 import webbrowser
 
 def otherCmds():
-    if action == ("inv" or "inventory"):
+    if ("help" in action):
+        help()
+    elif ("inv" in action):
         inventoryCheck()
     elif (("look" in action) or ("examine" in action)) and ("sleep" in action) and (("spell" in action) or ("scroll" in action)):
         sleepSpellDesc()
@@ -592,8 +600,6 @@ def otherCmds():
             playerInv.append('a SLEEP spell')
             playerInv.append('a silver key')
             playerInv.append('an ancient sword')
-    elif ("help" in action):
-        help()
     else:
         print("\nPlease try another command!")  
 
@@ -803,9 +809,12 @@ def tutorial():
     USE <OBJECT>
         Try to use a specific object, either in your inventory or in the room.
         EX: 'use sword'
-  HELP <COMMAND>
-    Provides more detailed explanations of specific commands and additional examples.
-    EX: 'help use', 'help search'
+    INV, INVENTORY
+        Displays the items you currently hold as well as your current score.
+        EX: 'inv' or 'inventory'
+    HELP <COMMAND>
+        Provides more detailed explanations of specific commands and additional examples.
+        EX: 'help use', 'help search'
 
 There are other commands besides these, so don't hesitate to experiment. If you ever need a reminder of what common commands exist, simply type "help."
 
